@@ -1,0 +1,157 @@
+/* -------------------------------
+   Import des polices
+---------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@700&display=swap');
+
+/* -------------------------------
+   Styles généraux
+---------------------------------*/
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #FFF5F5; /* fond nude très clair */
+  color: #3D3D3D; /* texte principal gris foncé */
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3 {
+  font-family: 'Poppins', sans-serif;
+  color: #3D3D3D;
+}
+
+/* -------------------------------
+   Header
+---------------------------------*/
+.header {
+  width: 100%;
+  padding: 1rem 2rem;
+  background-color: #CDB4DB; /* violet pâle */
+  color: #FFFFFF; /* texte blanc */
+  font-weight: bold;
+  font-size: 1.5rem;
+  border-radius: 0 0 12px 12px;
+  box-sizing: border-box;
+}
+
+/* -------------------------------
+   Boutons
+---------------------------------*/
+button {
+  background-color: #CDB4DB; /* violet pâle */
+  color: #3D3D3D; /* texte gris foncé */
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #F7C8D1; /* rose doux */
+}
+
+/* -------------------------------
+   Cartes de livres (BookCard)
+---------------------------------*/
+.book-card {
+  background-color: #FFF5F5; /* très légèrement nude */
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin: 1rem 0;
+}
+
+/* -------------------------------
+   Dashboard / Stats
+---------------------------------*/
+.dashboard {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.dashboard-card {
+  background-color: #FFF5F5;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  flex: 1 1 200px;
+}
+
+/* -------------------------------
+   Formulaires / Inputs
+---------------------------------*/
+input, select, textarea {
+  padding: 0.5rem;
+  border: 1px solid #CDB4DB;
+  border-radius: 8px;
+  outline: none;
+  font-family: 'Inter', sans-serif;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #F7C8D1;
+}
+
+::placeholder {
+  color: #9E9E9E; /* gris clair */
+}
+
+/* -------------------------------
+   Liens
+---------------------------------*/
+a {
+  color: #CDB4DB;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #F7C8D1;
+}
+
+/* -------------------------------
+   Utilitaires
+---------------------------------*/
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* -------------------------------
+   Logos (Vite + React) si tu veux garder animation
+---------------------------------*/
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #CDB4DBaa); /* violet pâle */
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #F7C8D1aa); /* rose doux */
+}
+
+@keyframes logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}

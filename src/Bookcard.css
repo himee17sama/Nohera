@@ -1,0 +1,20 @@
+.book-card {
+    border: 1px solid #e0dfe7;
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: #f9f5f9; /* style nude/rose pâle */
+    text-align: left;
+  }
+  
+  .book-card h3 {
+    margin: 0 0 0.5rem 0;
+    color: #6b4c7b; /* violet pâle */
+  }
+  
+  .book-card p {
+    margin: 0.2rem 0;
+    color: #5c4b5a;
+    font-size: 0.9rem;
+  }
+  
