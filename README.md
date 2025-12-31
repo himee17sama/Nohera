@@ -1,73 +1,129 @@
-# React + TypeScript + Vite
+Nohera — Reading Tracker App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Nohera est une application web de suivi de lecture permettant de gérer, organiser et analyser ses lectures de manière simple et visuelle.
+Le projet a été conçu avec une approche produit & UX, en mettant l’accent sur la clarté, la progression de lecture et la personnalisation.
 
-Currently, two official plugins are available:
+⸻
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+ Objectifs du projet
+	•	Centraliser ses lectures au même endroit
+	•	Visualiser sa progression et ses habitudes de lecture
+	•	Offrir une expérience simple, élégante et personnalisée
+	•	Mettre en pratique React + TypeScript dans un projet concret
 
-## React Compiler
+⸻
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Fonctionnalités
 
-## Expanding the ESLint configuration
+📖 Gestion des livres
+	•	Ajouter un livre (titre, auteur, catégorie, format, note, commentaire)
+	•	Modifier les informations d’un livre
+	•	Supprimer un livre
+	•	Ajouter une image de couverture
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+ Organisation
+	•	Statut de lecture :
+	•	En cours
+	•	Terminé
+	•	Abandonné
+	•	Catégories via menu déroulant
+	•	Format du livre : papier, ebook ou audio
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Lecture & suivi
+	•	Système de notation avec étoiles
+	•	Calcul du temps de lecture en jours à partir de la date de début
+	•	Affichage du nombre total de livres
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+ Tableaux de bord & statistiques
+	•	Total des livres enregistrés
+	•	Onglets :
+	•	Lectures en cours
+	•	Lectures du mois précédent
+	•	Toutes les lectures
+	•	Statistiques de lecture :
+	•	Nombre de livres lus
+	•	Temps total de lecture
+	•	Répartition par catégorie
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Persistance des données
+	•	Sauvegarde automatique via localStorage
+	•	Données conservées après rechargement de la page
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+ Interface & design
+	•	Design personnalisé (rose, nude et violet pâle)
+	•	Composants réutilisables
+	•	Interface responsive
+	•	Expérience utilisateur simple et lisible
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+⸻
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+🧱 Stack technique
+	•	React (Vite)
+	•	TypeScript
+	•	CSS
+	•	LocalStorage
+	•	Git & GitHub
+	•	Vercel (déploiement)
+
+⸻
+
+🧠 Architecture du projet
+
+src/
+├── components/
+│   ├── Header.tsx
+│   ├── Dashboard.tsx
+│   ├── Library.tsx
+│   ├── BookForm.tsx
+│   ├── BookCard.tsx
+│   └── EditBookModal.tsx
+├── types.ts
+├── App.tsx
+├── main.tsx
+└── index.css
+
+
+⸻
+
+🧩 Modèle de données principal
+
+export type BookStatus = 'en cours' | 'terminé' | 'abandonné';
+
+export type Book = {
+  id: string;
+  title: string;
+  author: string;
+  category: string;
+  status: BookStatus;
+  format: 'papier' | 'ebook' | 'audio';
+  rating: number;
+  startDate: string;
+  readingDays: number;
+  comment: string;
+  cover?: string;
+};
+
+
+⸻
+
+Démo en ligne
+
+ Application déployée sur Vercel
+--> (lien à ajouter)
+
+⸻
+
+ Améliorations futures
+	•	Authentification utilisateur
+	•	Sauvegarde en base de données (Firebase / Supabase)
+	•	Export des statistiques
+	•	Mode sombre
+	•	Filtres avancés (par note, durée, catégorie)
+
+⸻
+
+👩‍💻 À propos
+
+Projet développé par Hime,
+dans une démarche de montée en compétences en React, TypeScript et UX design,
+avec une approche orientée produit et expérience utilisateur.
