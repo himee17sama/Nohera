@@ -66,7 +66,7 @@ Nohera est une application web moderne pour suivre et gérer votre bibliothèque
    ```
 
 4. **Ouvrir dans le navigateur**
-   - Le serveur démarre généralement sur `http://localhost:5173`
+   - Le serveur démarre généralement sur `https://nohera-v2.vercel.app/`
    - Ouvrez cette URL dans votre navigateur
 
 ## ⚠️ Important
