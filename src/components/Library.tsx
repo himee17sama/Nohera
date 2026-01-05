@@ -44,8 +44,8 @@ const Library = ({ books, setBooks }: LibraryProps) => {
     }
   };
 
+  // Calculer les livres filtrés pour l'onglet actif
   const tabBooks = getBooksForTab();
-
   const filteredBooks = tabBooks.filter(book => {
     const query = searchQuery.toLowerCase();
     return (
@@ -55,7 +55,7 @@ const Library = ({ books, setBooks }: LibraryProps) => {
     );
   });
 
-  const renderBookList = () => (
+  const renderBookListContent = () => (
     <>
       <BookForm onAddBook={handleAddBook} />
       <div style={{ marginBottom: '1.5rem' }}>
@@ -106,22 +106,22 @@ const Library = ({ books, setBooks }: LibraryProps) => {
     {
       id: 'all',
       label: 'Toutes mes lectures',
-      content: renderBookList()
+      content: null // Sera rendu dynamiquement
     },
     {
       id: 'current',
       label: 'Lecture actuelle',
-      content: renderBookList()
+      content: null
     },
     {
       id: 'thisMonth',
       label: 'Ce mois',
-      content: renderBookList()
+      content: null
     },
     {
       id: 'lastMonth',
       label: 'Mois dernier',
-      content: renderBookList()
+      content: null
     },
     {
       id: 'stats',
@@ -132,7 +132,53 @@ const Library = ({ books, setBooks }: LibraryProps) => {
 
   return (
     <div style={{ padding: '2rem' }}>
-      <Tabs tabs={tabs} activeTab={activeTab} onTabChange={setActiveTab} />
+      <div style={{ width: '100%' }}>
+        <div style={{
+          display: 'flex',
+          borderBottom: '2px solid #CDB4DB',
+          marginBottom: '1.5rem',
+          gap: '0.5rem'
+        }}>
+          {tabs.map(tab => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              style={{
+                padding: '0.75rem 1.5rem',
+                backgroundColor: activeTab === tab.id ? '#CDB4DB' : 'transparent',
+                color: activeTab === tab.id ? '#4B0082' : '#666',
+                border: 'none',
+                borderBottom: activeTab === tab.id ? '3px solid #4B0082' : '3px solid transparent',
+                cursor: 'pointer',
+                fontSize: '1rem',
+                fontWeight: activeTab === tab.id ? 'bold' : 'normal',
+                fontFamily: 'Arial, sans-serif',
+                transition: 'all 0.2s ease',
+                borderRadius: '8px 8px 0 0'
+              }}
+              onMouseOver={e => {
+                if (activeTab !== tab.id) {
+                  e.currentTarget.style.backgroundColor = '#F7C8D1';
+                }
+              }}
+              onMouseOut={e => {
+                if (activeTab !== tab.id) {
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                }
+              }}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+        <div>
+          {activeTab === 'stats' ? (
+            <ReadingStats books={books} />
+          ) : (
+            renderBookListContent()
+          )}
+        </div>
+      </div>
     </div>
   );
 };
