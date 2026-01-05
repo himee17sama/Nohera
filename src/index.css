@@ -13,7 +13,6 @@ html, body, #root {
 
 body {
   background-color: #f3f4f6; /* gris clair */
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin: 0;
+  padding: 0;
 }

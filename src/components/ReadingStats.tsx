@@ -1,6 +1,7 @@
 // src/components/ReadingStats.tsx
 import type { Book } from '../types';
 import { getBooksByMonth, getBooksByYear, calculateReadingSpeed, getCurrentReadings, getCompletedBooks, getAbandonedBooks } from '../utils/bookFilters';
+import { BooksPerMonthChart, BooksPerYearChart, ReadingSpeedChart } from './Charts';
 
 type ReadingStatsProps = {
   books: Book[];
@@ -131,20 +132,10 @@ export default function ReadingStats({ books }: ReadingStatsProps) {
         </div>
       </div>
 
-      <div style={{
-        backgroundColor: '#FFF5F5',
-        padding: '2rem',
-        borderRadius: '12px',
-        boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-        textAlign: 'center',
-        color: '#666'
-      }}>
-        <p style={{ margin: '0', fontStyle: 'italic' }}>
-          Les graphiques seront disponibles prochainement
-        </p>
-        <p style={{ margin: '0.5rem 0 0 0', fontSize: '0.9rem' }}>
-          Graphiques prévus : Vitesse de lecture, Livres par mois, Livres par année
-        </p>
+      <div style={{ marginTop: '2rem' }}>
+        <BooksPerMonthChart books={books} />
+        <BooksPerYearChart books={books} />
+        <ReadingSpeedChart books={books} />
       </div>
     </div>
   );

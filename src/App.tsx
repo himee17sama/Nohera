@@ -33,6 +33,16 @@ function App() {
       } catch (error) {
         console.error('Erreur lors du chargement des livres:', error);
       }
+    } else {
+      // Si aucun livre n'existe, charger les données de test
+      const testDataLoaded = localStorage.getItem('testDataLoaded');
+      if (!testDataLoaded) {
+        import('./utils/generateTestData').then(module => {
+          const testBooks = module.generateTestBooks();
+          setBooks(testBooks);
+          localStorage.setItem('testDataLoaded', 'true');
+        });
+      }
     }
     setIsLoaded(true);
   }, []);
@@ -43,10 +53,14 @@ function App() {
     }
   }, [books, isLoaded]);
 
+  const handleAddTestData = (testBooks: Book[]) => {
+    setBooks(prevBooks => [...prevBooks, ...testBooks]);
+  };
+
   return (
     <div>
       <Header />
-      <Dashboard totalBooks={books.length} />
+      <Dashboard totalBooks={books.length} onAddTestData={handleAddTestData} />
       <Library books={books} setBooks={setBooks} />
     </div>
   );

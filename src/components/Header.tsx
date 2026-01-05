@@ -1,4 +1,3 @@
-
 import './Header.css';
 
 const Header = () => {
@@ -7,6 +6,6 @@ const Header = () => {
       <h1>Nohera</h1>
     </header>
   );
-}
+};
 
 export default Header;
