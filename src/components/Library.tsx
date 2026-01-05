@@ -2,7 +2,6 @@
 import { useState } from 'react';
 import BookCard from './BookCard';
 import BookForm from './BookForm';
-import Tabs from './Tabs';
 import ReadingStats from './ReadingStats';
 import type { Book } from '../types';
 import { getCurrentReadings, getLastMonthReadings, getThisMonthReadings } from '../utils/bookFilters';

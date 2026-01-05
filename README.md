@@ -1,3 +1,5 @@
+# 📚 Nohera - Application de Gestion de Lecture
+
 Nohera est une application web moderne pour suivre et gérer votre bibliothèque personnelle de livres. Créez votre collection, suivez vos lectures en cours, consultez vos statistiques et visualisez votre progression avec des graphiques interactifs.
 
 ## ✨ Fonctionnalités
